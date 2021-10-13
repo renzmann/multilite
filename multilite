@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+if [ -z $@ ]; then
+    dir='.'
+else
+    dir=$1
+fi
+
+
+columns="$(for f in $dir/*.db; do
+    tables=$(sqlite3 $f "SELECT name FROM sqlite_master WHERE type='table';")
+    for t in $tables; do
+        columns=$(sqlite3 $f "SELECT name FROM PRAGMA_TABLE_INFO('$t');")
+        echo "$columns" | while read foo ; do
+            echo "$f|$t|$foo"
+        done
+    done
+done)"
+
+
+echo "$columns" \
+    | column -t -s '|' \
+    | fzf -e \
+        --bind ctrl-a:select-all,ctrl-w:deselect-all \
+        --layout=reverse \
+        --border \
+        --margin=3% \
+        --multi \
+        --preview="sqlite3 {1} 'SELECT {3} FROM {2} ORDER BY RANDOM() LIMIT 100;'" \
+        --preview-window=right:25%
+
