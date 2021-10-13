@@ -19,7 +19,7 @@ done)"
 
 echo "$columns" \
     | column -t -s '|' \
-    | fzf -e \
+    | fzf \
         --bind ctrl-a:select-all,ctrl-w:deselect-all \
         --layout=reverse \
         --border \
