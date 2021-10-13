@@ -14,16 +14,29 @@ This is just a `bash` script that calls `sqlite3`, `column` (a common unix utili
 and [`fzf`](https://github.com/junegunn/fzf), so install each of those separately, if
 you need to.
 
+
 Installation
 ------------
 
-Copy the `multilite` file to somewhere on your `$PATH`, that's it! Then,
+Copy the `multilite` file to somewhere on your `$PATH`, that's it! Here's a one-liner
+I use to download it from the "releases" page:
+
+    curl https://github.com/renzmann/multilite/releases/download/v.1.0.0/multilite -Lo ~/.local/bin/multilite
+
+Change the ~/.local/bin to your preferred location.
+
+
+Usage
+-----
+
+To explore many files at once,
 
     multilite /path/to/directory/with/data
 
 Or, to explore just one file,
 
     multilite /path/to/data.db
+
 
 Keybindings
 -----------
@@ -32,6 +45,7 @@ Keybindings
 `Shift+Tab`: deselect and move up  
 `Ctrl+a` : select all  
 `Ctrl+2` : deselect all  
+
 
 Limitations
 -----------
