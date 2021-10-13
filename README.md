@@ -14,6 +14,17 @@ This is just a `bash` script that calls `sqlite3`, `column` (a common unix utili
 and [`fzf`](https://github.com/junegunn/fzf), so install each of those separately, if
 you need to.
 
+Installation
+------------
+
+Copy the `multilite` file to somewhere on your `$PATH`, that's it! Then,
+
+    multilite /path/to/directory/with/data
+
+Or, to explore just one file,
+
+    multilite /path/to/data.db
+
 Keybindings
 -----------
 

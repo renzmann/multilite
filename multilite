@@ -1,12 +1,18 @@
 #!/usr/bin/env bash
 if [ -z $@ ]; then
-    dir='.'
+    arg='.'
 else
-    dir=$1
+    arg=$1
+fi
+
+if [[ $arg =~ .*\.db ]]; then
+    dir="$arg"
+else
+    dir="$arg/*.db"
 fi
 
 
-columns="$(for f in $dir/*.db; do
+columns="$(for f in $dir ; do
     tables=$(sqlite3 $f "SELECT name FROM sqlite_master WHERE type='table';")
     for t in $tables; do
         columns=$(sqlite3 $f "SELECT name FROM PRAGMA_TABLE_INFO('$t');")
