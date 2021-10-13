@@ -17,10 +17,10 @@ you need to.
 Keybindings
 -----------
 
-`Tab` : select and move down
-`Shift+Tab`: deselect and move up
-`Ctrl+a` : select all
-`Ctrl+2` : deselect all
+`Tab` : select and move down  
+`Shift+Tab`: deselect and move up  
+`Ctrl+a` : select all  
+`Ctrl+2` : deselect all  
 
 Limitations
 -----------
